@@ -4,7 +4,7 @@ from flask import Flask, request, render_template
 import cohere
 
 # Set your Cohere API key
-COHERE_API_KEY = "8YgkYnRpWZgV4nCE9n8mjAzTTxMG4ii3rEp9wR1X"
+COHERE_API_KEY = ""
 co = cohere.Client(COHERE_API_KEY)
 
 # Initialize the Flask app
