@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cohere AI Chat</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://static.vecteezy.com/system/resources/previews/020/436/138/non_2x/chatbot-ai-artificial-intelligence-technology-hitech-concept-chatbot-application-smart-bot-open-ai-line-technology-abstract-design-for-chatting-web-banner-background-transformation-vector.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 40px auto 0 auto;
+      margin-right: 60px; /* 👈 This moves it slightly to the right */
+      padding: 20px;
+      background: #ffffff;
+      min-height: 80vh;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px;
+    }
+    .top-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .top-bar img {
+      height: 70px;
+      border-radius: 10px;
+    }
+    .chat-box {
+      flex-grow: 1;
+      margin: 20px 0;
+      overflow-y: auto;
+      padding-right: 10px;
+      max-height: 300px;
+    }
+    .message {
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      max-width: 80%;
+      word-wrap: break-word;
+    }
+    .user {
+      background-color: #d1e7dd;
+      align-self: flex-end;
+    }
+    .bot {
+      background-color: #e0f7fa;
+      align-self: flex-start;
+    }
+    .chat-form {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .chat-form input[type="text"] {
+      flex-grow: 1;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .chat-form button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <img src="https://img.freepik.com/free-vector/graident-ai-robot-vectorart_78370-4114.jpg" alt="Chatbot">
+    </div>
+
+    <div class="chat-box">
+      {% for sender, message in chat_history %}
+        <div class="message {{ 'user' if sender == 'You' else 'bot' }}">
+          <strong>{{ sender }}:</strong> {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+
+    <form class="chat-form" method="POST" id="chatForm">
+      <input type="text" name="user_input" id="userInput" placeholder="Type your message..." autocomplete="off" required>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script>
+    const input = document.getElementById("userInput");
+    const form = document.getElementById("chatForm");
+    const chatBox = document.querySelector(".chat-box");
+
+    input.addEventListener("keypress", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        form.submit();
+      }
+    });
+
+    function scrollToBottom() {
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    window.onload = scrollToBottom;
+    window.onresize = scrollToBottom;
+
+    document.addEventListener('DOMContentLoaded', function () {
+      scrollToBottom();
+    });
+  </script>
+</body>
+</html>

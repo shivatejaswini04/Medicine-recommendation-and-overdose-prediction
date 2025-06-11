@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Overdose Risk Calculator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <h2>Overdose Risk Prediction</h2>
+
+      {% if error_message %}
+        <div class="error-message">{{ error_message }}</div>
+      {% endif %}
+
+      <form method="POST">
+        <label for="drug">Drug Name:</label>
+        <input list="drugs" name="drug" id="drug"
+               value="{{ submitted_values.get('drug', '') if submitted_values else '' }}" required>
+        <datalist id="drugs">
+          {% for drug in available_drugs %}
+          <option value="{{ drug }}">
+          {% endfor %}
+        </datalist>
+
+        <label for="age_group">Age Group:</label>
+        <select name="age_group" id="age_group" required>
+          <option value="">--Select Age Group--</option>
+          <option value="Child" {% if submitted_values and submitted_values.get('age_group') == 'Child' %}selected{% endif %}>Child</option>
+          <option value="Teen" {% if submitted_values and submitted_values.get('age_group') == 'Teen' %}selected{% endif %}>Teen</option>
+          <option value="Adult" {% if submitted_values and submitted_values.get('age_group') == 'Adult' %}selected{% endif %}>Adult</option>
+          <option value="Senior" {% if submitted_values and submitted_values.get('age_group') == 'Senior' %}selected{% endif %}>Senior</option>
+        </select>
+
+        <label for="dosage">Dosage (mg):</label>
+        <input type="number" name="dosage" id="dosage"
+               value="{{ submitted_values.get('dosage', '') if submitted_values else '' }}" required>
+
+        <label for="frequency">Frequency per Day:</label>
+        <input type="number" name="frequency" id="frequency"
+               value="{{ submitted_values.get('frequency', '') if submitted_values else '' }}" required>
+
+        <button type="submit">Predict</button>
+      </form>
+    </div>
+
+    <div class="result-container">
+      <h3>Prediction Result:</h3>
+      {% if result %}
+        <p class="{{ 'safe' if result == 'Safe' else 'overdosed' }}">{{ result }}</p>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Diet Suggestions</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    .card-img-top {
+      width: 100%;
+      object-fit: contain; /* Ensures the image fits within the card without distortion */
+      max-height: 200px; /* Adjust based on how much space you want to allocate for images */
+    }
+    .card-body {
+      height: 150px;
+      overflow: hidden;
+    }
+    .card {
+      height: 100%;
+      transition: transform 0.2s ease-in-out;
+    }
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body class="p-4">
+  <h3>🥗 Diets</h3>
+  <div class="row row-cols-1 row-cols-md-4 g-4 mt-3">
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1fVZSk1-G2O0GsnBZIQFMwJNomlp5mHeW-G056wEmCu2AJ9Qzbgnd7XMv6iHIssLtnBk&usqp=CAU" class="card-img-top" alt="Omega 3 Rich Foods">
+        <div class="card-body">
+          <h5 class="card-title">Omega 3 Rich Foods</h5>
+          <p class="card-text">Supports brain function, heart health, and reduces inflammation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST-7aXyP77AUlrja1JdCjc7CTCTi5HX6hW3oQycvTNVz8Sa7HDm0ilL5CMo0mf4NYwLEw&usqp=CAU" class="card-img-top" alt="Coconut Oil">
+        <div class="card-body">
+          <h5 class="card-title">Coconut Oil</h5>
+          <p class="card-text">Coconut oil supports healthy fat intake and may aid in boosting metabolism and improving brain function.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://m.media-amazon.com/images/I/61lC4FLrCDL.jpg" class="card-img-top" alt="Oral Rehydration Solutions">
+        <div class="card-body">
+          <h5 class="card-title">Oral Rehydration Solutions</h5>
+          <p class="card-text">Oral rehydration solutions help replenish fluids and electrolytes lost during dehydration, promoting quick recovery.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <img src="data:image/jpeg;base64,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" class="card-img-top" alt="Fruits and Vegetables">
+        <div class="card-body">
+          <h5 class="card-title">Fruits and Vegetables</h5>
+          <p class="card-text">Rich in vitamins, antioxidants, and fiber, fruits and vegetables help boost immunity and maintain overall health.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnCBlykN8A3ihML5ou5fy1gj8HhZ17owihaTLGBIoIfhcBBbYf5HN-3Fs4Umbs8-qZ1HE&usqp=CAU" class="card-img-top" alt="Brown Rice">
+        <div class="card-body">
+          <h5 class="card-title">Whole grains</h5>
+          <p class="card-text">Whole grains provide complex carbohydrates, fiber, and essential nutrients, supporting digestion and sustained energy levels.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://media.istockphoto.com/id/590242446/photo/ginger-root-tea-with-lemon-honey-and-mint.jpg?s=612x612&w=0&k=20&c=VTpEVtGkxAChPr0D9EPnleqcEHY-xaJlA-hph0VFaJ8= " class="card-img-top" alt="Honey">
+        <div class="card-body">
+          <h5 class="card-title">Honey and Lemon Tea</h5>
+          <p class="card-text">A soothing remedy that may help relieve sore throat, aid digestion, and support immunity naturally.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://i0.wp.com/thelecc.com/wp-content/uploads/2021/04/image-asset.jpeg?fit=800%2C600&ssl=1" class="card-img-top" alt="Protein Rich Foods">
+        <div class="card-body">
+          <h5 class="card-title">DASH diet</h5>
+          <p class="card-text">Designed to lower blood pressure, the DASH diet emphasizes nutrient-rich foods like fruits, vegetables, lean proteins, and low-fat dairy.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100">
+        <img src="https://foodguides.com/cdn/shop/articles/Aloe.Vera.Juice.Does.it.help.with.acid.reflux.and.gerd_16x9_5721a9e4-3568-4f42-bbb6-b6abc0a60f1e.jpg?v=1686066722&width=1000 " class="card-img-top" alt="Hydrating Drinks">
+        <div class="card-body">
+          <h5 class="card-title">Aloe vera juice</h5>
+          <p class="card-text">Known for its detoxifying properties, aloe vera juice may aid digestion and soothe the stomach lining.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

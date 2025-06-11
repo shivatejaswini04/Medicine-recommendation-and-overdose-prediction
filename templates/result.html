@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 26px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9fbfd;
+            border-left: 5px solid #3498db;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .section h3 {
+            color: #34495e;
+            margin-top: 0;
+            border-left: none;
+            padding-left: 0;
+            font-size: 20px;
+        }
+
+        ul {
+            list-style: disc;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Hover effect for list items */
+        li:hover {
+            background-color: #e3f2fd;
+            cursor: pointer;
+        }
+
+        li::marker {
+            color: #3498db;
+        }
+
+        .empty-message {
+            color: #999;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🩺 Disease Predicted: {{ disease }}</h2>
+
+        <div class="section">
+            <h3>🛡️ Measures:</h3>
+            {% if precautions and precautions|length > 0 %}
+                <ul>
+                    {% for row in precautions %}
+                        {% for item in row %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="empty-message">No precautions available.</p>
+            {% endif %}
+        </div>
+
+        <div class="section">
+            <h3>💊 Medications:</h3>
+            {% if medications and medications|length > 0 %}
+                <ul>
+                    {% for m in medications %}
+                        <li>{{ m }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="empty-message">No medications available.</p>
+            {% endif %}
+        </div>
+
+        <div class="section">
+            <h3>🥗 Diet Suggestions:</h3>
+            {% if diets and diets|length > 0 %}
+                <ul>
+                    {% for d in diets %}
+                        <li>{{ d }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="empty-message">No diet suggestions available.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
