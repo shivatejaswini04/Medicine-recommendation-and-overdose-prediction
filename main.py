@@ -1,15 +1,19 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
+from dotenv import load_dotenv
 import numpy as np
 import pandas as pd
 import pickle
 import os
 import mysql.connector
 import cohere
+
+load_dotenv()
+
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
 
 # Cohere API setup
-COHERE_API_KEY = "8YgkYnRpWZgV4nCE9n8mjAzTTxMG4ii3rEp9wR1X"
+COHERE_API_KEY = os.getenv("COHERE_API_KEY")
 co = cohere.Client(COHERE_API_KEY)
 chat_history = []
 
